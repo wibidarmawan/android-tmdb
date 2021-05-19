@@ -53,7 +53,7 @@ public class LoginTabFragment extends Fragment {
 
         btnLogin.setOnClickListener(v -> {
             String email = etEmail.getText().toString();
-            String password= etPassword.getText().toString();
+            String password = etPassword.getText().toString();
 
             ApiInterface apiInterface = RetrofitLoginInstance.getRetrofitInstance().create(ApiInterface.class);
             Call<LoginResponseModel> call = apiInterface.login(email, password);
@@ -61,7 +61,7 @@ public class LoginTabFragment extends Fragment {
                 @Override
                 public void onResponse(Call<LoginResponseModel> call, Response<LoginResponseModel> response) {
                     LoginResponseModel loginResponseModel = response.body();
-                    if (loginResponseModel.getStatus().equals("Success")){
+                    if (loginResponseModel.getStatus().equals("Success")) {
                         Intent variableintent = new Intent(getContext(), MainActivity.class);
                         startActivity(variableintent);
                         getActivity().finish();

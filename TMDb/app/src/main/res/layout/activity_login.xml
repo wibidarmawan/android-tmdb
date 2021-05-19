@@ -6,27 +6,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Activity.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/tv_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/yellow_rounded_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:gravity="center"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="Skip for now"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_tmdb_1"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="60dp"
-        />
+        android:layout_marginTop="32dp"
+        android:src="@drawable/ic_tmdb_1" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="vertical">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:background="@color/black"
+            app:tabSelectedTextColor="@color/vibrant_yellow"
+            app:tabTextColor="@color/clouds" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
+
 </LinearLayout>

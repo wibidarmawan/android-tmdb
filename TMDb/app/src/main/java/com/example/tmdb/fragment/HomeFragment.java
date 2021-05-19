@@ -31,6 +31,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     RecyclerView rvTopRated, rvPopular, rvUpcoming;
     private int page = 1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvTopRated = view.findViewById(R.id.rv_top_rated);
         rvPopular = view.findViewById(R.id.rv_popular);
@@ -51,7 +52,7 @@ public class HomeFragment extends Fragment {
 
         ApiInterface apiInterface = RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call<GetMovieResponseModel> call = apiInterface.getMovie("top_rated",RetrofitInstance.API_KEY, page);
+        Call<GetMovieResponseModel> call = apiInterface.getMovie("top_rated", RetrofitInstance.API_KEY, page);
         call.enqueue(new Callback<GetMovieResponseModel>() {
             @Override
             public void onResponse(Call<GetMovieResponseModel> call, Response<GetMovieResponseModel> response) {
@@ -63,7 +64,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<GetMovieResponseModel> call, Throwable t) {
-                Toast.makeText(getActivity(),"Error "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -79,7 +80,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<GetMovieResponseModel> call, Throwable t) {
-                Toast.makeText(getActivity(),"Error "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -95,12 +96,12 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<GetMovieResponseModel> call, Throwable t) {
-                Toast.makeText(getActivity(),"Error "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void SetLayout(RecyclerView rv){
+    public void SetLayout(RecyclerView rv) {
         rv.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rv.setItemAnimator(new DefaultItemAnimator());
     }

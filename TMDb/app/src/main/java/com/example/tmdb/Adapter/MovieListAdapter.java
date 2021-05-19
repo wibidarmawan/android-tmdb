@@ -76,12 +76,11 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         return movieModelList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView ivPoster;
         public TextView tvTitle;
         public CardView cardView;
         public ProgressBar progressBar;
-        public RecyclerView recyclerView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,7 +91,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
         }
     }
 
-    public void refreshAdapter(List<MovieModel> movieModels){
+    public void refreshAdapter(List<MovieModel> movieModels) {
         this.movieModelList.addAll(movieModels);
         notifyItemRangeChanged(0, this.movieModelList.size());
     }

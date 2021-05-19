@@ -22,6 +22,8 @@
         android:layout_gravity="bottom"
         android:foregroundGravity="bottom"
         app:menu="@menu/menu_bawah"
+        app:itemIconTint="@drawable/menu_item_color"
+        app:itemTextColor="@drawable/menu_item_color"
         android:backgroundTint="@color/dracula_orchid"
         android:background="@color/dracula_orchid"/>
 

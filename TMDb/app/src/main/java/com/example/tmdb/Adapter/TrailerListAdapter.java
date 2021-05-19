@@ -52,7 +52,7 @@ public class TrailerListAdapter extends RecyclerView.Adapter<TrailerListAdapter.
             @Override
             public void onVideoId(@NotNull YouTubePlayer youTubePlayer, @NotNull String videoId) {
                 super.onVideoId(youTubePlayer, videoId);
-                if (check[0]){
+                if (check[0]) {
                     youTubePlayer.cueVideo(videoResultModel.getKey(), 0);
                     check[0] = false;
                 }
@@ -61,7 +61,6 @@ public class TrailerListAdapter extends RecyclerView.Adapter<TrailerListAdapter.
             @Override
             public void onError(@NotNull YouTubePlayer youTubePlayer, @NotNull PlayerConstants.PlayerError error) {
                 super.onError(youTubePlayer, error);
-//                holder.linearLayout.setVisibility(View.GONE);
             }
         });
 
@@ -76,6 +75,7 @@ public class TrailerListAdapter extends RecyclerView.Adapter<TrailerListAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         public YouTubePlayerView youTubePlayerView;
         public TextView textView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             youTubePlayerView = itemView.findViewById(R.id.ypv_trailer_item);

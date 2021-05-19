@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(R.id.screen_area, fragment);
         ft.commit();
-
-
     }
 
     @Override

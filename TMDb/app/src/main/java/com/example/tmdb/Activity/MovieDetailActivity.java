@@ -71,34 +71,23 @@ public class MovieDetailActivity extends AppCompatActivity {
             public void onResponse(Call<MovieDetailModel> call, Response<MovieDetailModel> response) {
                 MovieDetailModel movieDetailModel = response.body();
                 List<VideoResultModel> videoResultModelList = movieDetailModel.getVideoModel().getVideoResultModels();
-                TrailerListAdapter trailerListAdapter = new TrailerListAdapter(videoResultModelList,MovieDetailActivity.this);
+                TrailerListAdapter trailerListAdapter = new TrailerListAdapter(videoResultModelList, MovieDetailActivity.this);
                 recyclerView.setAdapter(trailerListAdapter);
 
                 runtime = movieDetailModel.getRuntime();
 
-                Picasso.get().load(RetrofitInstance.BASE_IMG_URL+movieDetailModel.getPoster_path())
+                Picasso.get().load(RetrofitInstance.BASE_IMG_URL + movieDetailModel.getPoster_path())
                         .fit()
                         .error(R.drawable.ic_broken_picture)
                         .into(ivPoster);
-                Picasso.get().load(RetrofitInstance.BASE_IMG_URL+movieDetailModel.getBackdrop_path())
+                Picasso.get().load(RetrofitInstance.BASE_IMG_URL + movieDetailModel.getBackdrop_path())
                         .placeholder(R.drawable.ic_broken_picture)
                         .into(ivBackdrop);
                 tvTitle.setText(movieDetailModel.getTitle());
                 tvOverview.setText(movieDetailModel.getOverview());
                 tvRating.setText(String.valueOf(movieDetailModel.getVote_average()));
                 tvYear.setText(movieDetailModel.getRelease_date().substring(0, 4));
-                tvRuntime.setText((runtime / 60) + "h" + (runtime% 60) + "m");
-
-
-//                trailerList =  movieDetailModel.getVideoModel().getVideoResultModels();
-//                for (int i = 0; i<trailerList.size(); i++){
-//                    if (trailerList.get(i).getType().equals("Trailer")){
-//                        trailerKey = trailerList.get(i).getKey();
-//                        Toast.makeText(MovieDetailActivity.this, trailerKey, Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-//                }
-//                Toast.makeText(MovieDetailActivity.this, trailerKey, Toast.LENGTH_SHORT).show();
+                tvRuntime.setText((runtime / 60) + "h" + (runtime % 60) + "m");
             }
 
             @Override
@@ -106,8 +95,6 @@ public class MovieDetailActivity extends AppCompatActivity {
 
             }
         });
-
-
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

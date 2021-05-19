@@ -4,10 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class  GetMovieResponseModel {
+public class GetMovieResponseModel {
     private int page;
     @SerializedName("results")
-    private List<MovieModel>movieModels;
+    private List<MovieModel> movieModels;
     private int total_results;
     private int total_pages;
 

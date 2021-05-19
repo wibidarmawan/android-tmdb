@@ -22,21 +22,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
 
-            <LinearLayout
-                android:id="@+id/ll_detail_poster"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_detail_poster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv_detail_backdrop"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="-40dp"
-                android:background="@color/dracula_orchid">
+                android:background="@color/dracula_orchid"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="10dp">
 
                 <ImageView
                     android:id="@+id/iv_detail_poster"
                     android:layout_width="125dp"
                     android:layout_height="175dp"
                     android:scaleType="centerInside" />
-            </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tv_detail_title"
@@ -46,7 +48,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_toRightOf="@+id/ll_detail_poster"
+                android:layout_toRightOf="@+id/cv_detail_poster"
                 android:text="Title"
                 android:textColor="@color/vibrant_yellow"
                 android:textSize="30sp"
@@ -73,13 +75,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/ic_year"/>
+                    android:background="@drawable/ic_year" />
+
                 <TextView
                     android:id="@+id/tv_detail_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Year"
                     android:textAlignment="center"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -102,6 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -123,6 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0h0m"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
@@ -146,6 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Overview"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -161,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="Videos"
+                android:text="Related Videos"
                 android:textColor="@color/vibrant_yellow"
                 android:textSize="30sp"
                 android:textStyle="bold" />

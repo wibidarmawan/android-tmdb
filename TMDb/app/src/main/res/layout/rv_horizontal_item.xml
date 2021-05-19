@@ -7,29 +7,33 @@
     android:layout_margin="4dp"
     android:background="@color/dracula_orchid"
     android:backgroundTint="@color/dracula_orchid"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="150dp"
         android:layout_height="270dp"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ProgressBar
+                android:id="@+id/pb_horizontal_item_poster"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/pb_horizontal_item_poster"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true" />
+
             <ImageView
                 android:id="@+id/iv_popular_poster"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerInside" />
         </RelativeLayout>
 
         <TextView
@@ -40,6 +44,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="Title"
+            android:textColor="@color/vibrant_yellow"
             android:textSize="15sp"
             android:textStyle="bold" />
 

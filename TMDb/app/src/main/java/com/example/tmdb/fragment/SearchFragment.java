@@ -91,7 +91,7 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void doLoadData(String searchQuery){
+    private void doLoadData(String searchQuery) {
         ApiInterface apiInterface = RetrofitInstance.getRetrofitInstance().create(ApiInterface.class);
         Call<GetMovieResponseModel> call = apiInterface.searchMovie(searchQuery, RetrofitInstance.API_KEY, page);
         call.enqueue(new Callback<GetMovieResponseModel>() {
@@ -99,14 +99,14 @@ public class SearchFragment extends Fragment {
             public void onResponse(Call<GetMovieResponseModel> call, Response<GetMovieResponseModel> response) {
                 GetMovieResponseModel getMovieResponseModel = response.body();
                 List<MovieModel> movieModelList = getMovieResponseModel.getMovieModels();
-                if (page == 1){
+                if (page == 1) {
                     movieListAdapter = new MovieListAdapter(movieModelList, getActivity());
                     recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                     recyclerView.setAdapter(movieListAdapter);
                 } else {
                     try {
                         movieListAdapter.refreshAdapter(movieModelList);
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         Toast.makeText(getActivity(), "error " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -121,7 +121,7 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void initListener(String searchQuery){
+    private void initListener(String searchQuery) {
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -136,7 +136,7 @@ public class SearchFragment extends Fragment {
                 int countItem = gridLayoutManager.getItemCount();
                 int lastVisiblePosition = gridLayoutManager.findLastCompletelyVisibleItemPosition();
                 boolean isLastPosition = (countItem - 1) == lastVisiblePosition;
-                if (!isLoading && isLastPosition && page < totalPage){
+                if (!isLoading && isLastPosition && page < totalPage) {
                     showLoading(true);
                     page += 1;
                     doLoadData(searchQuery);
@@ -145,13 +145,13 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void showLoading(Boolean isRefresh){
+    private void showLoading(Boolean isRefresh) {
         isLoading = true;
         rl_progressBar.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(isRefresh ? View.VISIBLE : View.GONE);
     }
 
-    private void hideLoading(){
+    private void hideLoading() {
         isLoading = false;
         rl_progressBar.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);

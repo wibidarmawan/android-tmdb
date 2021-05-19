@@ -23,18 +23,18 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class MovieHorizontalAdapter extends RecyclerView.Adapter<MovieHorizontalAdapter.ViewHolder>{
+public class MovieHorizontalAdapter extends RecyclerView.Adapter<MovieHorizontalAdapter.ViewHolder> {
     private List<MovieModel> movieModels;
     private Context context;
 
-    public MovieHorizontalAdapter(Context context, List<MovieModel> movieModels){
+    public MovieHorizontalAdapter(Context context, List<MovieModel> movieModels) {
         this.context = context;
         this.movieModels = movieModels;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.rv_horizontal_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
@@ -52,11 +52,12 @@ public class MovieHorizontalAdapter extends RecyclerView.Adapter<MovieHorizontal
     }
 
     @Override
-    public void onBindViewHolder (@NonNull ViewHolder holder, int position){
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MovieModel movieModel = movieModels.get(position);
 
         holder.tv_popular_title.setText(movieModel.getTitle());
-        Picasso.get().load(RetrofitInstance.BASE_IMG_URL+movieModel.getPoster_path())
+        Picasso.get().load(RetrofitInstance.BASE_IMG_URL + movieModel.getPoster_path())
+                .fit()
                 .error(R.drawable.ic_broken_picture)
                 .into(holder.iv_popular_poster, new Callback() {
                     @Override
@@ -72,17 +73,17 @@ public class MovieHorizontalAdapter extends RecyclerView.Adapter<MovieHorizontal
     }
 
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return movieModels.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tv_popular_title;
         public ImageView iv_popular_poster;
         CardView cardView;
         ProgressBar progressBar;
 
-        public ViewHolder(View itemView){
+        public ViewHolder(View itemView) {
             super(itemView);
             tv_popular_title = itemView.findViewById(R.id.tv_pupular_title);
             iv_popular_poster = itemView.findViewById(R.id.iv_popular_poster);

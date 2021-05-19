@@ -21,40 +21,50 @@
                 android:id="@+id/et_email_register"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:hint="Email" />
+                android:hint="Email"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint" />
 
             <EditText
                 android:id="@+id/et_name_register"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:hint="Name" />
+                android:hint="Name"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint" />
 
             <EditText
                 android:id="@+id/et_dob_register"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:hint="Date of Birth" />
+                android:hint="Date of Birth"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint" />
 
             <EditText
                 android:id="@+id/et_address_register"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:hint="Address" />
+                android:hint="Address"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint" />
 
             <EditText
                 android:id="@+id/et_password_register"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/hint" />
 
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="150dp"
-                android:layout_marginTop="10dp"
                 android:layout_height="60dp"
-                android:textColor="@color/black"
-                android:text="REGISTER" />
+                android:layout_marginTop="10dp"
+                android:text="REGISTER"
+                android:textColor="@color/black" />
 
         </LinearLayout>
     </LinearLayout>

@@ -73,7 +73,7 @@ public class RegisterTabFragment extends Fragment {
                         dialog.show();
                         emptyField();
 
-                    } else{
+                    } else {
                         etEmail.setText("");
                         alertDialog.setMessage("Email already registered, input another Email!");
                         AlertDialog dialog = alertDialog.create();
@@ -86,7 +86,7 @@ public class RegisterTabFragment extends Fragment {
 
                 }
 
-                public void emptyField(){
+                public void emptyField() {
                     etEmail.setText("");
                     etName.setText("");
                     etDob.setText("");

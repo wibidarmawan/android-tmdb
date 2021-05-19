@@ -1,14 +1,15 @@
 package com.example.tmdb.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tmdb.Adapter.MovieListAdapter;
@@ -29,12 +30,11 @@ public class GenreActivity extends AppCompatActivity {
     public static final String EXTRA_GENRE = "extra_genre";
     RecyclerView rvMovieGenre;
     GenreModel genreModel;
-    //    ProgressBar progressBar;
     String genreName;
     int genreId;
     private Boolean isLoading;
-    private int page;
-    private int totalPage;
+    private int page = 1;
+    private int totalPage = 0;
     MovieListAdapter movieListAdapter;
     RelativeLayout relativeLayout;
 
@@ -43,12 +43,7 @@ public class GenreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre);
 
-        page = 1;
-        totalPage = 0;
-
-
         rvMovieGenre = findViewById(R.id.rv_movie_genre);
-//        progressBar = findViewById(R.id.pb_genre_scroll);
         relativeLayout = findViewById(R.id.rl_pg_background);
 
         genreModel = getIntent().getParcelableExtra(EXTRA_GENRE);
@@ -56,14 +51,12 @@ public class GenreActivity extends AppCompatActivity {
         genreName = genreModel.getName();
         genreId = genreModel.getId();
 
-        getSupportActionBar().setTitle(genreName);
-
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
-
-
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle(genreName);
+        ab.setDisplayHomeAsUpEnabled(true);
         doLoadData();
         initListener();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void doLoadData() {
@@ -94,8 +87,6 @@ public class GenreActivity extends AppCompatActivity {
             public void onFailure(Call<GetMovieResponseModel> call, Throwable t) {
                 Toast.makeText(GenreActivity.this, "error " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
-
-
         });
     }
 
@@ -125,14 +116,12 @@ public class GenreActivity extends AppCompatActivity {
 
     private void showLoading(Boolean isRefresh) {
         isLoading = true;
-//        progressBar.setVisibility(View.VISIBLE);
         relativeLayout.setVisibility(View.VISIBLE);
         rvMovieGenre.setVisibility(isRefresh ? View.VISIBLE : View.GONE);
     }
 
     private void hideLoading() {
         isLoading = false;
-//        progressBar.setVisibility(View.GONE);
         relativeLayout.setVisibility(View.GONE);
         rvMovieGenre.setVisibility(View.VISIBLE);
     }

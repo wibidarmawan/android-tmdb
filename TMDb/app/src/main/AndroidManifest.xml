@@ -28,7 +28,9 @@
         <activity android:name=".Activity.MovieDetailActivity" />
         <activity
             android:name=".Activity.MainActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan">
+
+        </activity>
     </application>
 
 </manifest>

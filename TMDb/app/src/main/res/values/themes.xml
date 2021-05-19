@@ -14,7 +14,31 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="CustomDark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="CustomDark" parent="Theme.MaterialComponents.Light.DarkActionBar">
+<!--        <item name="android:background">@color/black</item>-->
+<!--        <item name="android:windowBackground">@color/black</item>-->
+        <item name="android:colorBackground">@color/black</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/vibrant_yellow</item>
+        <item name="colorPrimaryVariant">@color/dracula_orchid</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/black</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+        <item name="fontFamily">@font/quicksand_medium</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/vibrant_yellow</item>
+        <item name="colorSecondaryVariant">@color/chrome_yellow</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="CustomDarkNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+<!--        <item name="android:background">@color/black</item>-->
+<!--        <item name="android:windowBackground">@color/black</item>-->
+        <item name="android:colorBackground">@color/black</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/vibrant_yellow</item>
         <item name="colorPrimaryVariant">@color/dracula_orchid</item>
@@ -30,20 +54,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="CustomDarkNoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/vibrant_yellow</item>
-        <item name="colorPrimaryVariant">@color/dracula_orchid</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="backgroundColor">@color/black</item>
-        <item name="fontFamily">@font/quicksand_medium</item>
 
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/vibrant_yellow</item>
-        <item name="colorSecondaryVariant">@color/chrome_yellow</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
     </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+    </style>
+
 </resources>
